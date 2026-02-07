@@ -4,854 +4,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học Đúng Cách – Hiểu Sâu Lớp 12 | Kết Nối Tri Thức</title>
+    <title>Học Tốt Lớp 12 - Phương Pháp & Tư Duy</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-
-        :root {
-            /* Color Palette */
-            --blue: #2563EB;
-            --blue-light: #EFF6FF;
-            --green: #10B981;
-            --green-light: #ECFDF5;
-            --amber: #F59E0B;
-            --amber-light: #FFFBEB;
-            --purple: #8B5CF6;
-            --purple-light: #F5F3FF;
-
-            --gray-dark: #1F2937;
-            --gray-medium: #6B7280;
-            --gray-light: #F3F4F6;
-            --white: #FFFFFF;
-
-            --radius: 0.75rem;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
 
         body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: var(--gray-light);
-            color: var(--gray-dark);
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .dau-trang {
+            background: linear-gradient(135deg, #0062cc, #00c6ff);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dau-trang h1 {
+            margin: 0;
+            font-size: 32px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .dau-trang p {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* --- THANH MENU ĐA SẮC MÀU --- */
+        .thanh-menu {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .thanh-menu a {
+            text-decoration: none;
+            font-weight: 700;
+            /* Đậm hơn chút cho đẹp */
+            padding: 10px 25px;
+            margin: 0 5px;
+            border-radius: 25px;
+            /* Bo tròn hơn */
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+            /* Tạo viền sẵn để ko bị nhảy layout */
+        }
+
+        /* 1. Nút Toán (Đỏ Cam) */
+        .thanh-menu .menu-toan {
+            color: #e74c3c;
+            border-color: #e74c3c;
+        }
+
+        .thanh-menu .menu-toan:hover {
+            background-color: #e74c3c;
+            color: white;
+            transform: translateY(-2px);
+            /* Nổi lên nhẹ */
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+
+        /* 2. Nút Lý (Tím) */
+        .thanh-menu .menu-ly {
+            color: #8e44ad;
+            border-color: #8e44ad;
+        }
+
+        .thanh-menu .menu-ly:hover {
+            background-color: #8e44ad;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
+        }
+
+        /* 3. Nút Hóa (Xanh Lá) */
+        .thanh-menu .menu-hoa {
+            color: #27ae60;
+            border-color: #27ae60;
+        }
+
+        .thanh-menu .menu-hoa:hover {
+            background-color: #27ae60;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        /* 4. Nút Sinh (Vàng Cam) */
+        .thanh-menu .menu-sinh {
+            color: #f39c12;
+            border-color: #f39c12;
+        }
+
+        .thanh-menu .menu-sinh:hover {
+            background-color: #f39c12;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Khung nội dung */
+        .khung-chinh {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .the-noi-dung {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-top: 5px solid #ddd;
+        }
+
+
+        .muc-lon {
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* 1. HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #1E293B 0%, #374151 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 1.5rem 6rem;
-            margin-bottom: -3rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #60A5FA, #34D399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* RADIO LOGIC (HIDDEN) */
-        input[type="radio"] {
-            display: none;
-        }
-
-        /* 2. SUBJECT SELECTION SECTION */
-        .instruction {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 2;
-            opacity: 0.9;
-        }
-
-        .subject-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .subject-btn {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            text-align: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .subject-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .icon {
-            font-size: 2.5rem;
-        }
-
-        .subject-name {
-            font-weight: 700;
-            color: var(--gray-dark);
-        }
-
-        /* Active States for Buttons */
-        #tab-math:checked~.container .btn-math {
-            border-color: var(--blue);
-            background: var(--blue-light);
-        }
-
-        #tab-phys:checked~.container .btn-phys {
-            border-color: var(--purple);
-            background: var(--purple-light);
-        }
-
-        #tab-chem:checked~.container .btn-chem {
-            border-color: var(--green);
-            background: var(--green-light);
-        }
-
-        #tab-bio:checked~.container .btn-bio {
-            border-color: var(--amber);
-            background: var(--amber-light);
-        }
-
-        /* 3. CONTENT PANELS */
-        .content-area {
-            position: relative;
-            min-height: 400px;
-            padding-bottom: 4rem;
-        }
-
-        .panel {
-            display: none;
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 2.5rem;
-            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-top: 5px solid transparent;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Show active panel */
-        #tab-math:checked~.container .panel-math {
-            display: block;
-            border-color: var(--blue);
-        }
-
-        #tab-phys:checked~.container .panel-phys {
-            display: block;
-            border-color: var(--purple);
-        }
-
-        #tab-chem:checked~.container .panel-chem {
-            display: block;
-            border-color: var(--green);
-        }
-
-        #tab-bio:checked~.container .panel-bio {
-            display: block;
-            border-color: var(--amber);
-        }
-
-        /* PANEL CONTENT LAYOUT */
-        .panel-header {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 1rem;
-        }
-
-        .panel-header h2 {
-            font-size: 1.8rem;
-            color: var(--gray-dark);
-        }
-
-        .panel-subtitle {
-            font-size: 1rem;
-            color: var(--gray-medium);
-            font-weight: 500;
-        }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .card-box {
-            background: var(--gray-light);
-            border-radius: 8px;
-            padding: 1.5rem;
-            border: 1px solid #E5E7EB;
-        }
-
-        .card-title {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .panel-math .card-title {
-            color: var(--blue);
-        }
-
-        .panel-phys .card-title {
-            color: var(--purple);
-        }
-
-        .panel-chem .card-title {
-            color: var(--green);
-        }
-
-        .panel-bio .card-title {
-            color: var(--amber);
-        }
-
-        ul.strategy-list {
-            list-style: none;
-        }
-
-        ul.strategy-list li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-
-        ul.strategy-list li::before {
-            content: "•";
+        ul li::before {
+            content: "✔";
+            font-weight: bold;
             position: absolute;
             left: 0;
+        }
+
+        .khung-vi-du {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tieu-de-vi-du {
             font-weight: bold;
-            color: currentColor;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        .panel-math ul li::before {
-            color: var(--blue);
+        /* Bảng */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
         }
 
-        .panel-phys ul li::before {
-            color: var(--purple);
+        th,
+        td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
         }
 
-        .panel-chem ul li::before {
-            color: var(--green);
+        th {
+            color: white;
+            /* Chữ trắng cho nổi trên nền màu */
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
         }
 
-        .panel-bio ul li::before {
-            color: var(--amber);
+        tr:hover {
+            background-color: #f1f1f1;
         }
 
-        /* EXAMPLE SECTION */
-        .example-block {
-            background: #FAFAFA;
-            border: 2px dashed #E5E7EB;
-            border-radius: var(--radius);
-            padding: 2rem;
+        /* Link giáo viên */
+        .link-giao-vien {
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
         }
 
-        .example-header {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--gray-dark);
+        .link-giao-vien:hover {
+            text-decoration: underline;
         }
 
-        .example-content {
-            background: var(--white);
-            border: 1px solid #E5E7EB;
-            padding: 1.5rem;
-            border-radius: 6px;
+        /* --- PHỐI MÀU CHO CÁC PANEL MÔN HỌC --- */
+
+        /* 1. TOÁN - ĐỎ cam (#e74c3c) */
+        #mon-toan {
+            border-top-color: #e74c3c;
         }
 
-        .highlight-step {
-            display: inline-block;
-            background: var(--gray-dark);
-            color: var(--white);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            font-weight: 600;
+        #mon-toan .tieu-de-mon {
+            color: #e74c3c;
         }
 
-        /* TEACHER SECTION IN PANELS */
-        .teacher-section {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px dashed #E2E8F0;
+        #mon-toan .muc-lon {
+            color: #e74c3c;
         }
 
-        .teacher-section-title {
+        #mon-toan ul li::before {
+            color: #e74c3c;
+        }
+
+        #mon-toan .khung-vi-du {
+            border-left-color: #e74c3c;
+        }
+
+        #mon-toan .tieu-de-vi-du {
+            color: #e74c3c;
+        }
+
+        #mon-toan th {
+            background-color: #e74c3c;
+        }
+
+        #mon-toan .link-giao-vien {
+            color: #e74c3c;
+        }
+
+        /* 2. LÝ - TÍM (#8e44ad) */
+        #mon-ly {
+            border-top-color: #8e44ad;
+        }
+
+        #mon-ly .tieu-de-mon {
+            color: #8e44ad;
+        }
+
+        #mon-ly .muc-lon {
+            color: #8e44ad;
+        }
+
+        #mon-ly ul li::before {
+            color: #8e44ad;
+        }
+
+        #mon-ly .khung-vi-du {
+            border-left-color: #8e44ad;
+        }
+
+        #mon-ly .tieu-de-vi-du {
+            color: #8e44ad;
+        }
+
+        #mon-ly th {
+            background-color: #8e44ad;
+        }
+
+        #mon-ly .link-giao-vien {
+            color: #8e44ad;
+        }
+
+        /* 3. HÓA - XANH LÁ (#27ae60) */
+        #mon-hoa {
+            border-top-color: #27ae60;
+        }
+
+        #mon-hoa .tieu-de-mon {
+            color: #27ae60;
+        }
+
+        #mon-hoa .muc-lon {
+            color: #27ae60;
+        }
+
+        #mon-hoa ul li::before {
+            color: #27ae60;
+        }
+
+        #mon-hoa .khung-vi-du {
+            border-left-color: #27ae60;
+        }
+
+        #mon-hoa .tieu-de-vi-du {
+            color: #27ae60;
+        }
+
+        #mon-hoa th {
+            background-color: #27ae60;
+        }
+
+        #mon-hoa .link-giao-vien {
+            color: #27ae60;
+        }
+
+        /* 4. SINH - CAM VÀNG (#f39c12) */
+        #mon-sinh {
+            border-top-color: #f39c12;
+        }
+
+        #mon-sinh .tieu-de-mon {
+            color: #f39c12;
+        }
+
+        #mon-sinh .muc-lon {
+            color: #f39c12;
+        }
+
+        #mon-sinh ul li::before {
+            color: #f39c12;
+        }
+
+        #mon-sinh .khung-vi-du {
+            border-left-color: #f39c12;
+        }
+
+        #mon-sinh .tieu-de-vi-du {
+            color: #f39c12;
+        }
+
+        #mon-sinh th {
+            background-color: #f39c12;
+        }
+
+        #mon-sinh .link-giao-vien {
+            color: #f39c12;
+        }
+
+        .chan-trang {
             text-align: center;
-            font-size: 1.5rem;
-            color: var(--gray-dark);
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .teacher-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .teacher-card {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 1.25rem;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .teacher-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-            border-color: var(--primary);
-        }
-
-        .t-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-            color: var(--gray-dark);
-        }
-
-        .t-source {
-            font-size: 0.8rem;
-            color: var(--white);
-            background: var(--gray-medium);
-            display: inline-block;
-            padding: 0.1rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            align-self: flex-start;
-        }
-
-        .t-style {
-            font-size: 0.9rem;
-            color: var(--gray-dark);
-            margin-bottom: 0.75rem;
-            font-style: italic;
-        }
-
-        .t-feedback {
-            font-size: 0.85rem;
-            color: var(--gray-medium);
-            background: #FFFFFF;
-            padding: 0.5rem;
-            border-radius: 4px;
-            border-left: 3px solid #CBD5E1;
-            margin-top: auto;
-        }
-
-        /* Color overrides */
-        .panel-math .teacher-card:hover {
-            border-color: var(--blue);
-        }
-
-        .panel-math .t-source {
-            background: var(--blue);
-        }
-
-        .panel-phys .teacher-card:hover {
-            border-color: var(--purple);
-        }
-
-        .panel-phys .t-source {
-            background: var(--purple);
-        }
-
-        .panel-chem .teacher-card:hover {
-            border-color: var(--green);
-        }
-
-        .panel-chem .t-source {
-            background: var(--green);
-        }
-
-        .panel-bio .teacher-card:hover {
-            border-color: var(--amber);
-        }
-
-        .panel-bio .t-source {
-            background: var(--amber);
-        }
-
-        .disclaimer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #94A3B8;
-            margin-top: 2rem;
-            font-style: italic;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .subject-nav {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .strategy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .teacher-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .subject-nav {
-                grid-template-columns: 1fr;
-            }
+            padding: 30px;
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- STATE MANAGEMENT -->
-    <input type="radio" name="tab" id="tab-math">
-    <input type="radio" name="tab" id="tab-phys">
-    <input type="radio" name="tab" id="tab-chem">
-    <input type="radio" name="tab" id="tab-bio">
+    <div class="dau-trang">
+        <h1>CẨM NANG HỌC TỐT KHOA HỌC TỰ NHIÊN 12</h1>
+        <p>Phương pháp đúng - Hiểu bản chất - Tư duy sâu</p>
+    </div>
 
-    <!-- 1. HERO SECTION -->
-    <header class="hero">
-        <div class="container" style="position: relative; z-index: 1;">
-            <h1>Học Đúng Cách – Hiểu Sâu Lớp 12</h1>
-            <p>Phương pháp học tập cốt lõi, phát triển năng lực tư duy cho các môn Khoa học Tự nhiên.</p>
-            <p class="instruction" style="margin-top: 2rem;">👇 Nhấn vào từng môn để xem bí quyết học tập và tư duy 👇
-            </p>
-        </div>
-    </header>
+    <!-- CÁC NÚT MENU ĐƯỢC PHÂN MÀU -->
+    <div class="thanh-menu">
+        <a href="#mon-toan" class="menu-toan">Toán Học</a>
+        <a href="#mon-ly" class="menu-ly">Vật Lý</a>
+        <a href="#mon-hoa" class="menu-hoa">Hóa Học</a>
+        <a href="#mon-sinh" class="menu-sinh">Sinh Học</a>
+    </div>
 
-    <div class="container main-content">
+    <div class="khung-chinh">
 
-        <!-- 2. SUBJECT SELECTION -->
-        <div class="subject-nav">
-            <label for="tab-math" class="subject-btn btn-math">
-                <span class="icon">📐</span>
-                <span class="subject-name">Toán Học</span>
-            </label>
-            <label for="tab-phys" class="subject-btn btn-phys">
-                <span class="icon">⚛️</span>
-                <span class="subject-name">Vật Lý</span>
-            </label>
-            <label for="tab-chem" class="subject-btn btn-chem">
-                <span class="icon">🧪</span>
-                <span class="subject-name">Hóa Học</span>
-            </label>
-            <label for="tab-bio" class="subject-btn btn-bio">
-                <span class="icon">🧬</span>
-                <span class="subject-name">Sinh Học</span>
-            </label>
-        </div>
+        <!-- MÔN TOÁN -->
+        <div id="mon-toan" class="the-noi-dung">
+            <h2 class="tieu-de-mon">📐 Toán Học: Tư Duy & Logic</h2>
 
-        <!-- 3. CONTENT PANELS -->
-        <div class="content-area">
+            <span class="muc-lon">A. Cách học cốt lõi</span>
+            <ul>
+                <li><strong>Phân tích đề bài:</strong> Đọc kỹ giả thiết, xác định dạng bài (Hàm số, Logarit, Tích
+                    phân...).</li>
+                <li><strong>Quy lạ về quen:</strong> Đừng hoảng sợ bài khó, hãy tìm cách đưa nó về các bài toán cơ bản
+                    trong SGK.</li>
+                <li><strong>Kiểm tra lại:</strong> Luôn thử lại đáp án bằng máy tính hoặc thay số ngược lại để tránh sai
+                    sót.</li>
+            </ul>
 
-            <!-- TOÁN HỌC PANEL -->
-            <div class="panel panel-math">
-                <div class="panel-header">
-                    <h2>Toán Học: Tư Duy & Logic</h2>
-                    <p class="panel-subtitle">Cách học tổng quát: Biến bài toán lạ thành quen</p>
-                </div>
-
-                <div class="strategy-grid">
-                    <div class="card-box">
-                        <div class="card-title">💡 A. CÁCH HỌC CỐT LÕI</div>
-                        <ul class="strategy-list">
-                            <li><strong>Phân tích đề bài:</strong> Đề bài đang hỏi về đối tượng gì? (Hàm số, hình không
-                                gian, tích phân...).</li>
-                            <li><strong>Quy lạ về quen:</strong> Tìm mối liên hệ với các dạng bài cơ bản đã học trong
-                                SGK.</li>
-                            <li><strong>Chọn công cụ:</strong> Quyết định dùng Đạo hàm, Tọa độ hóa, hay Biến đổi đại số.
-                            </li>
-                            <li><strong>Kiểm tra:</strong> Luôn thử lại kết quả hoặc xem xét tính hợp lý.</li>
-                        </ul>
-                    </div>
-                    <div class="card-box">
-                        <div class="card-title">🧠 B. TƯ DUY LÀM BÀI</div>
-                        <ul class="strategy-list">
-                            <li>🚫 <strong>Không</strong> lao vào tính toán ngay khi chưa có chiến lược.</li>
-                            <li>✅ <strong>Luôn tự hỏi:</strong> "Bài này thuộc chương nào? Công thức nào là chìa khóa?".
-                            </li>
-                            <li>✅ <strong>Ưu tiên lập luận:</strong> Trình bày logic quan trọng hơn là bấm máy tính
-                                nhanh.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="example-block">
-                    <div class="example-header">🔍 C. VÍ DỤ MINH HỌA PHƯƠNG PHÁP</div>
-                    <div class="example-content">
-                        <p style="margin-bottom: 1rem;"><strong>Bài toán:</strong> Tìm giá trị lớn nhất của hàm số trên
-                            một đoạn.</p>
-                        <p><span class="highlight-step">Bước 1: Phân tích</span> Đề yêu cầu GTLN (Max). Đối tượng là hàm
-                            số. Công cụ tốt nhất là Đạo hàm (Khảo sát sự biến thiên).</p>
-                        <p><span class="highlight-step">Bước 2: Chiến lược</span> Lập bảng biến thiên trên đoạn đã cho
-                            -> Nhìn dáng điệu đồ thị -> Kết luận.</p>
-                        <p><span class="highlight-step">Bước 3: Thực hiện</span> Tính y', tìm nghiệm, tính giá trị tại
-                            biên và cực trị.</p>
-                        <p><span class="highlight-step">Kết luận</span> So sánh các giá trị tìm được để chọn Max.</p>
-                    </div>
-                </div>
-
-                <!-- TOÁN TEACHERS -->
-                <div class="teacher-section">
-                    <h3 class="teacher-section-title">👨‍🏫 Giáo Viên Nổi Tiếng - Môn Toán</h3>
-                    <div class="teacher-grid">
-                        <!-- Teacher 1 -->
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Đỗ Văn Đức</span>
-                            <span class="t-source">Tenschool</span>
-                            <p class="t-style">Phong cách dạy bản chất, nhiều kỹ thuật giải nhanh và bấm máy
-                                tính độc đáo, phù hợp mục tiêu 9+.</p>
-                            <p class="t-feedback">"Học thầy Đức không chỉ để đỗ đại học mà còn để rèn tư duy phản xạ cực
-                                nhanh."</p>
-                        </div>
-                        <!-- Teacher 2 -->
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Nguyễn Đăng Ái</span>
-                            <span class="t-source">Tư duy mở</span>
-                            <p class="t-style">Chuyên sâu về bản chất, phương pháp "Tư duy mở", không gò bó công thức,
-                                mệnh danh là "Vua xác suất", phù hợp mục tiêu 9+.
-                            </p>
-                            <p class="t-feedback">"Thầy dạy rất sâu sắc, giúp học sinh hiểu gốc rễ vấn đề chứ không học
-                                vẹt."</p>
-                        </div>
-                        <!-- Teacher 3 -->
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Nguyễn Quốc Chí</span>
-                            <span class="t-source">YouTube / Facebook</span>
-                            <p class="t-style">Vui tính, truyền cảm hứng, bài giảng ngắn gọn dễ hiểu cho mọi đối tượng,
-                                phù hợp mục tiêu 8+.
-                            </p>
-                            <p class="t-feedback">"Cách thầy giảng giúp những bạn mất gốc cũng cảm thấy yêu thích môn
-                                Toán trở lại."</p>
-                        </div>
-                        <!-- Teacher 4 -->
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Hoàng Trọng Nghĩa</span>
-                            <span class="t-source">LimC</span>
-                            <p class="t-style">Bộ đề tinh hoa nhiều câu hay mới lạ phù hợp mục tiêu 10</p>
-                            <p class="t-feedback">"Đề hay, khó, lạ. "
-                            </p>
-                        </div>
-                    </div>
-                    <p class="disclaimer">Danh sách mang tính tham khảo, dựa trên mức độ phổ biến và phản hồi chung từ
-                        cộng đồng học tập.</p>
-                </div>
+            <div class="khung-vi-du">
+                <span class="tieu-de-vi-du">Ví dụ: Tìm Giá Trị Lớn Nhất (Max)</span>
+                Bước 1: Tính đạo hàm y'.<br>
+                Bước 2: Lập bảng biến thiên để hình dung đồ thị lên xuống thế nào.<br>
+                Bước 3: So sánh giá trị tại các đỉnh núi (cực trị) và hai đầu mút để chọn Max.
             </div>
 
-            <!-- VẬT LÝ PANEL -->
-            <div class="panel panel-phys">
-                <div class="panel-header">
-                    <h2>Vật Lý: Bản Chất & Hiện Tượng</h2>
-                    <p class="panel-subtitle">Cách học tổng quát: Hiểu hiện tượng trước khi tính toán</p>
-                </div>
-
-                <div class="strategy-grid">
-                    <div class="card-box">
-                        <div class="card-title">💡 A. CÁCH HỌC CỐT LÕI</div>
-                        <ul class="strategy-list">
-                            <li><strong>Phân tích hiện tượng:</strong> Vật đang làm gì? (Dao động, chuyển động, phát
-                                sáng...).</li>
-                            <li><strong>Xác định mối liên hệ:</strong> Các đại lượng x, v, a, F liên kết với nhau như
-                                thế nào?</li>
-                            <li><strong>Dùng toán làm công cụ:</strong> Dùng đồ thị, vector, đạo hàm để mô tả vật lý.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-box">
-                        <div class="card-title">🧠 B. TƯ DUY LÀM BÀI</div>
-                        <ul class="strategy-list">
-                            <li>📝 <strong>Vẽ sơ đồ:</strong> Luôn vẽ hình minh họa hoặc sơ đồ tư duy cho bài toán.</li>
-                            <li>🎯 <strong>Xác định đích đến:</strong> Đề bài hỏi cái gì? Cái gì đã biết?</li>
-                            <li>🚫 <strong>Không tra công thức:</strong> Hãy suy luận công thức từ các định luật cơ bản.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="example-block">
-                    <div class="example-header">🔍 C. VÍ DỤ MINH HỌA PHƯƠNG PHÁP</div>
-                    <div class="example-content">
-                        <p style="margin-bottom: 1rem;"><strong>Bài toán:</strong> Con lắc lò xo dao động điều hòa.</p>
-                        <p><span class="highlight-step">Bước 1: Hiện tượng</span> Vật nặng chuyển động qua lại quanh vị
-                            trí cân bằng do lực đàn hồi.</p>
-                        <p><span class="highlight-step">Bước 2: Lập luận</span> Khi vật ở biên (xa nhất), vận tốc bằng
-                            0, lực đàn hồi lớn nhất. Khi ở Cân bằng, vận tốc lớn nhất.</p>
-                        <p><span class="highlight-step">Bước 3: Giải</span> Dựa vào lập luận trên để chọn công thức năng
-                            lượng hoặc lực phù hợp.</p>
-                        <p><span class="highlight-step">Kết luận</span> Các đại lượng biến thiên điều hòa theo thời
-                            gian.</p>
-                    </div>
-                </div>
-
-                <!-- LÝ TEACHERS -->
-                <div class="teacher-section">
-                    <h3 class="teacher-section-title">👨‍🏫 Giáo Viên Nổi Tiếng - Môn Vật Lý</h3>
-                    <div class="teacher-grid">
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Đỗ Ngọc Hà</span>
-                            <span class="t-source">Hocmai.vn</span>
-                            <p class="t-style">Bám sát bản chất sách giáo khoa, giải thích hiện tượng cực kỳ chi tiết.
-                            </p>
-                            <p class="t-feedback">"Học thầy Hà giúp hiểu sâu bản chất Vât lý, không phải học vẹt công
-                                thức."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Chu Văn Biên</span>
-                            <span class="t-source">Moon.vn</span>
-                            <p class="t-style">Chuyên luyện thi bài tập khó, vận dụng cao, phong cách nghiêm khắc, kỷ
-                                luật.</p>
-                            <p class="t-feedback">"Rất phù hợp cho các bạn mục tiêu 9-10 điểm và chịu được áp lực cao."
-                            </p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Bùi Xuân Đạt</span>
-                            <span class="t-source">Vật Lí Thầy Bùi Xuân Đạt</span>
-                            <p class="t-style">Chuyên luyện thi HSG, bài tập mới lạ độc đáo.</p>
-                            <p class="t-feedback">"Thầy có nhiều phương pháp giản đồ mới lạ giúp giải VDC
-                                cực nhanh."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Vũ Tuấn Anh</span>
-                            <span class="t-source">YouTube / Hocmai</span>
-                            <p class="t-style">Trẻ trung, năng động, chuyên các kỹ thuật giải bài tập vận dụng.</p>
-                            <p class="t-feedback">"Cách giảng hiện đại, dễ tiếp thu, tài liệu rất đẹp và khoa học."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HÓA HỌC PANEL -->
-            <div class="panel panel-chem">
-                <div class="panel-header">
-                    <h2>Hóa Học: Quy Luật & Phản Ứng</h2>
-                    <p class="panel-subtitle">Cách học tổng quát: Nắm vững bản chất hóa học</p>
-                </div>
-
-                <div class="strategy-grid">
-                    <div class="card-box">
-                        <div class="card-title">💡 A. CÁCH HỌC CỐT LÕI</div>
-                        <ul class="strategy-list">
-                            <li><strong>Bản chất phản ứng:</strong> Nhóm chức nào tác dụng với nhau? (VD: Axit + Bazơ,
-                                Este hóa...).</li>
-                            <li><strong>Vai trò các chất:</strong> Chất nào là chất oxi hóa? Chất nào là môi trường?
-                            </li>
-                            <li><strong>Liên hệ thực tế:</strong> Ứng dụng của chất đó trong đời sống (xà phòng,
-                                polime...).</li>
-                        </ul>
-                    </div>
-                    <div class="card-box">
-                        <div class="card-title">🧠 B. TƯ DUY LÀM BÀI</div>
-                        <ul class="strategy-list">
-                            <li>🏷️ <strong>Phân loại:</strong> Đây là bài toán Hữu cơ hay Vô cơ? Dạng bài đốt cháy hay
-                                thủy phân?</li>
-                            <li>⚖️ <strong>Định luật bảo toàn:</strong> Bảo toàn khối lượng, bảo toàn nguyên tố, bảo
-                                toàn electron.</li>
-                            <li>⚡ <strong>Logic:</strong> Giải quyết vấn đề một cách ngắn gọn, tránh viết phương trình
-                                không cần thiết.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="example-block">
-                    <div class="example-header">🔍 C. VÍ DỤ MINH HỌA PHƯƠNG PHÁP</div>
-                    <div class="example-content">
-                        <p style="margin-bottom: 1rem;"><strong>Bài toán:</strong> Phản ứng xà phòng hóa chất béo.</p>
-                        <p><span class="highlight-step">Bước 1: Bản chất</span> Chất béo là Este 3 chức (RCOO)3C3H5 +
-                            NaOH -> Muối + Glixerol.</p>
-                        <p><span class="highlight-step">Bước 2: Chọn phương pháp</span> Dùng Bảo toàn khối lượng. m(chất
-                            béo) + m(NaOH) = m(xà phòng) + m(glixerol).</p>
-                        <p><span class="highlight-step">Bước 3: Giải</span> Tính số mol NaOH -> suy ra số mol Glixerol
-                            (tỉ lệ 3:1) -> Tính khối lượng.</p>
-                        <p><span class="highlight-step">Kết luận</span> Không cần viết công thức cấu tạo phức tạp của
-                            chất béo.</p>
-                    </div>
-                </div>
-
-                <!-- HÓA TEACHERS -->
-                <div class="teacher-section">
-                    <h3 class="teacher-section-title">👨‍🏫 Giáo Viên Nổi Tiếng - Môn Hóa Học</h3>
-                    <div class="teacher-grid">
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Phạm Thắng</span>
-                            <span class="t-source">Tôi Yêu Hóa Học</span>
-                            <p class="t-style">Nổi tiếng với phương pháp "Dồn chất", "Xếp hình", tư duy Hóa học hiện
-                                đại.</p>
-                            <p class="t-feedback">"Học thầy Thắng giúp mở mang tư duy giải toán Hóa, không còn phụ thuộc
-                                vào viết phương trình."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Vũ Khắc Ngọc</span>
-                            <span class="t-source">Hocmai.vn</span>
-                            <p class="t-style">Kiến thức nền tảng vững chắc, giải thích sâu sắc, hệ thống bài giảng đồ
-                                sộ.</p>
-                            <p class="t-feedback">"Thầy dạy rất kỹ, phù hợp với mọi đối tượng học sinh muốn xây gốc từ
-                                đầu."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Phạm Văn Trọng</span>
-                            <span class="t-source">Tenschool</span>
-                            <p class="t-style">Phong cách điềm đạm, chắc chắn, chú trọng vào lý thuyết và các bẫy đề
-                                thi.</p>
-                            <p class="t-feedback">"Thầy giúp học sinh nắm chắc lý thuyết để không bao giờ bị mất điểm
-                                oan."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Nguyễn Anh Phong</span>
-                            <span class="t-source">Mapstudy</span>
-                            <p class="t-style">Cha đẻ của phương pháp "Tư duy dồn chất", giải bài tập khó trong 30s.</p>
-                            <p class="t-feedback">"Phương pháp của thầy rất độc đáo, giúp giải quyết các bài toán Hóa
-                                siêu khó cực nhanh."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SINH HỌC PANEL -->
-            <div class="panel panel-bio">
-                <div class="panel-header">
-                    <h2>Sinh Học: Cơ Chế & Hệ Thống</h2>
-                    <p class="panel-subtitle">Cách học tổng quát: Hiểu cơ chế, liên kết hệ thống</p>
-                </div>
-
-                <div class="strategy-grid">
-                    <div class="card-box">
-                        <div class="card-title">💡 A. CÁCH HỌC CỐT LÕI</div>
-                        <ul class="strategy-list">
-                            <li><strong>Hiểu cơ chế:</strong> Tại sao có hiện tượng này? (VD: Tại sao gen phân li độc
-                                lập?).</li>
-                            <li><strong>Hệ thống hóa:</strong> Liên kết kiến thức Tế bào -> Cơ thể -> Quần thể -> Hệ
-                                sinh thái.</li>
-                            <li><strong>Sơ đồ hóa:</strong> Dùng sơ đồ tư duy để ghi nhớ các quy trình phức tạp.</li>
-                        </ul>
-                    </div>
-                    <div class="card-box">
-                        <div class="card-title">🧠 B. TƯ DUY LÀM BÀI</div>
-                        <ul class="strategy-list">
-                            <li>🧬 <strong>Xác định đối tượng:</strong> Đề bài nói về gen, NST hay quần thể?</li>
-                            <li>🔍 <strong>Phân tích từng bước:</strong> Không đoán mò. Dùng quy luật di truyền để suy
-                                luận.</li>
-                            <li>❌ <strong>Loại trừ:</strong> Loại bỏ các phương án sai dựa trên kiến thức lý thuyết nền
-                                tảng.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="example-block">
-                    <div class="example-header">🔍 C. VÍ DỤ MINH HỌA PHƯƠNG PHÁP</div>
-                    <div class="example-content">
-                        <p style="margin-bottom: 1rem;"><strong>Bài toán:</strong> Xác định tỉ lệ kiểu hình đời con.</p>
-                        <p><span class="highlight-step">Bước 1: Cơ chế</span> Xác định quy luật di truyền chi phối (Phân
-                            li độc lập hay Liên kết gen?).</p>
-                        <p><span class="highlight-step">Bước 2: Phân tích</span> Xét riêng từng cặp tính trạng (A lai
-                            với A, B lai với B).</p>
-                        <p><span class="highlight-step">Bước 3: Tổng hợp</span> Nhân các tỉ lệ riêng để ra tỉ lệ chung
-                            (nếu độc lập).</p>
-                        <p><span class="highlight-step">Kết luận</span> Tỉ lệ kiểu hình là hệ quả của sự phân li và tổ
-                            hợp gen.</p>
-                    </div>
-                </div>
-
-                <!-- SINH TEACHERS -->
-                <div class="teacher-section">
-                    <h3 class="teacher-section-title">👨‍🏫 Giáo Viên Nổi Tiếng - Môn Sinh Học</h3>
-                    <div class="teacher-grid">
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Phan Khắc Nghệ</span>
-                            <span class="t-source">Moon.vn</span>
-                            <p class="t-style">Chuyên gia luyện đề, phân tích đề thi sắc bén, tác giả nhiều sách tham
-                                khảo nổi tiếng.</p>
-                            <p class="t-feedback">"Thầy Nghệ luôn có những hướng giải quyết bài tập di truyền rất thông
-                                minh và ngắn gọn."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Thịnh Nam</span>
-                            <span class="t-source">Hocmai.vn</span>
-                            <p class="t-style">Giảng dạy chi tiết, tỉ mỉ, hệ thống kiến thức SGK cực kỳ bài bản.</p>
-                            <p class="t-feedback">"Thầy dạy rất kỹ, giúp học sinh nắm chắc từng câu chữ trong sách giáo
-                                khoa."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Thầy Nguyễn Thành Công</span>
-                            <span class="t-source">Hocmai.vn</span>
-                            <p class="t-style">Phong cách hài hước, tư duy logic, giúp Sinh học trở nên bớt khô khan.
-                            </p>
-                            <p class="t-feedback">"Cách thầy liên hệ thực tế giúp môn Sinh trở nên rất sống động và dễ
-                                nhớ."</p>
-                        </div>
-                        <div class="teacher-card">
-                            <span class="t-name">Cô Phó Ngọc Thủy</span>
-                            <span class="t-source">YouTube</span>
-                            <p class="t-style">Nhẹ nhàng, dễ hiểu, chuyên dành cho các bạn mới bắt đầu hoặc mất gốc.</p>
-                            <p class="t-feedback">"Cô giảng rất chậm và kỹ, rất phù hợp để lấy lại căn bản."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <span class="muc-lon">B. Giáo viên tham khảo</span>
+            <table>
+                <tr>
+                    <th width="30%">Tên Thầy</th>
+                    <th width="20%">Nơi dạy</th>
+                    <th>Phong cách</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/dovanduc2020" target="_blank" class="link-giao-vien">Thầy Đỗ
+                            Văn Đức</a></td>
+                    <td>Tenschool</td>
+                    <td>Giải nhanh, bấm máy tính độc đáo.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/ThayAiTdm" target="_blank" class="link-giao-vien">Thầy Nguyễn
+                            Đăng Ái</a></td>
+                    <td>Tư duy mở</td>
+                    <td>Hiểu sâu bản chất, tư duy logic.</td>
+                </tr>
+            </table>
         </div>
 
+        <!-- MÔN LÝ -->
+        <div id="mon-ly" class="the-noi-dung">
+            <h2 class="tieu-de-mon">⚛️ Vật Lý: Bản Chất & Hiện Tượng</h2>
+
+            <span class="muc-lon">A. Cách học cốt lõi</span>
+            <ul>
+                <li><strong>Hiểu hiện tượng:</strong> Phải tưởng tượng được vật đang làm gì (dao động, quay, hay đứng
+                    yên).</li>
+                <li><strong>Vẽ hình minh họa:</strong> Luôn vẽ sơ đồ mạch điện hoặc giản đồ vector để dễ nhìn.</li>
+                <li><strong>Không học vẹt:</strong> Cố gắng tự chứng minh lại công thức để nhớ lâu hơn.</li>
+            </ul>
+
+            <div class="khung-vi-du">
+                <span class="tieu-de-vi-du">Ví dụ: Con Lắc Lò Xo</span>
+                - Khi vật ở biên (kéo ra xa nhất): Vận tốc = 0, nhưng Lực đàn hồi mạnh nhất.<br>
+                - Khi vật đi qua vị trí cân bằng (giữa): Chạy nhanh nhất (Vmax), Lực đàn hồi = 0.
+            </div>
+
+            <span class="muc-lon">B. Giáo viên tham khảo</span>
+            <table>
+                <tr>
+                    <th width="30%">Tên Thầy</th>
+                    <th width="20%">Nơi dạy</th>
+                    <th>Phong cách</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/thayha.vatli" target="_blank" class="link-giao-vien">Thầy Đỗ
+                            Ngọc Hà</a></td>
+                    <td>Hocmai.vn</td>
+                    <td>Giảng rất kỹ, sát Sách Giáo Khoa.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/chuvanbien.vn" target="_blank" class="link-giao-vien">Thầy Chu
+                            Văn Biên</a></td>
+                    <td>Moon.vn</td>
+                    <td>Nghiêm khắc, chuyên luyện bài khó 9+.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- MÔN HÓA -->
+        <div id="mon-hoa" class="the-noi-dung">
+            <h2 class="tieu-de-mon">🧪 Hóa Học: Phản Ứng & Quy Luật</h2>
+
+            <span class="muc-lon">A. Cách học cốt lõi</span>
+            <ul>
+                <li><strong>Nắm chắc lý thuyết:</strong> Đặc tính của các chất (Este, Amin, Polime...).</li>
+                <li><strong>Định luật bảo toàn:</strong> Bảo toàn khối lượng, bảo toàn nguyên tố là chìa khóa giải mọi
+                    bài toán.</li>
+                <li><strong>Tư duy dồn chất:</strong> Xem hỗn hợp phức tạp như một vài "mảnh ghép" đơn giản.</li>
+            </ul>
+
+            <div class="khung-vi-du">
+                <span class="tieu-de-vi-du">Ví dụ: Xà Phòng Hóa</span>
+                Dùng Bảo toàn khối lượng: m(Chất béo) + m(NaOH) = m(Xà phòng) + m(Glixerol).<br>
+                Chỉ cần tìm số mol NaOH là suy ra được số mol Glixerol (tỉ lệ 3:1), rất nhanh!
+            </div>
+
+            <span class="muc-lon">B. Giáo viên tham khảo</span>
+            <table>
+                <tr>
+                    <th width="30%">Tên Thầy</th>
+                    <th width="20%">Nơi dạy</th>
+                    <th>Phong cách</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/hoctothoahoc" target="_blank" class="link-giao-vien">Thầy Phạm
+                            Thắng</a></td>
+                    <td>Tôi Yêu Hóa Học</td>
+                    <td>Phương pháp "Dồn chất" hiện đại.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/search/top?q=thầy%20vũ%20khắc%20ngọc" target="_blank"
+                            class="link-giao-vien">Thầy Phạm Văn Trọng</a></td>
+                    <td>Tenschool</td>
+                    <td>Dạy cơ bản cực chắc, dễ hiểu.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- MÔN SINH -->
+        <div id="mon-sinh" class="the-noi-dung">
+            <h2 class="tieu-de-mon">🧬 Sinh Học: Cơ Chế & Hệ Thống</h2>
+
+            <span class="muc-lon">A. Cách học cốt lõi</span>
+            <ul>
+                <li><strong>Hiểu cơ chế:</strong> Tại sao gen biến đổi? Tại sao F2 có tỉ lệ 9:3:3:1?</li>
+                <li><strong>Sơ đồ tư duy:</strong> Vẽ sơ đồ cây để hệ thống kiến thức khổng lồ của Sinh học.</li>
+                <li><strong>Mẹo làm trắc nghiệm:</strong> Dùng phương pháp loại trừ đáp án sai.</li>
+            </ul>
+
+            <div class="khung-vi-du">
+                <span class="tieu-de-vi-du">Ví dụ: Bài Tập Di Truyền</span>
+                Bước 1: Xét riêng từng cặp tính trạng (A lai với A, B lai với B).<br>
+                Bước 2: Nhân kết quả các cặp lại với nhau.<br>
+                Điều này giúp bài toán phức tạp trở nên đơn giản như toán lớp 5.
+            </div>
+
+            <span class="muc-lon">B. Giáo viên tham khảo</span>
+            <table>
+                <tr>
+                    <th width="30%">Tên Thầy/Cô</th>
+                    <th width="20%">Nơi dạy</th>
+                    <th>Phong cách</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/sinhhocthayphankhacnghe" target="_blank"
+                            class="link-giao-vien">Thầy Phan Khắc Nghệ</a></td>
+                    <td>Moon.vn</td>
+                    <td>Chuyên gia giải đề thi.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.facebook.com/search/top?q=cô%20phó%20ngọc%20thủy%20sinh" target="_blank"
+                            class="link-giao-vien">Cô Phó Ngọc Thủy</a></td>
+                    <td>YouTube</td>
+                    <td>Giọng nhẹ nhàng, dễ tiếp thu.</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="chan-trang">
+        Chúc các bạn học tập tốt và đạt kết quả cao trong kỳ thi sắp tới!
     </div>
 
 </body>
