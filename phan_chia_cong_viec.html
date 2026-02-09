@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Chia Công Việc - Nhóm Khoa Học Tự Nhiên</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .dau-trang {
+            background: linear-gradient(135deg, #0062cc, #00c6ff);
+            /* Tone màu ScienceSkill */
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .dau-trang h1 {
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dau-trang p {
+            margin-top: 10px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th {
+            background-color: #0056b3;
+            /* Xanh đậm hơn chút cho Header bảng */
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+
+        /* Cột Thành Viên */
+        td:first-child {
+            font-weight: 500;
+            color: #2c3e50;
+            width: 20%;
+            background-color: #f8f9fa;
+            /* Nền nhẹ cho cột tên */
+        }
+
+        /* Cột Khối Lượng - Căn giữa */
+        td:last-child {
+            text-align: center;
+            width: 15%;
+            vertical-align: middle;
+        }
+
+        /* Style cho Nhóm trưởng */
+        .leader-row td {
+            background-color: #fff9db !important;
+            border-bottom: 1px solid #ffe066;
+        }
+
+        .leader-row td:first-child {
+            border-left: 5px solid #fcc419;
+        }
+
+        .leader-name {
+            color: #e67e22;
+            /* Cam đậm */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+
+        .leader-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #d35400;
+            margin-top: 4px;
+        }
+
+        /* Style phân việc */
+        .task-header {
+            font-weight: 700;
+            color: #0062cc;
+            /* Màu xanh chủ đạo */
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        ul.task-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        ul.task-list li {
+            margin-bottom: 6px;
+            color: #495057;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-leader {
+            background-color: #e74c3c;
+        }
+
+        /* Đỏ */
+        .badge-struct {
+            background-color: #3498db;
+        }
+
+        /* Xanh dương */
+        .badge-math {
+            background-color: #e67e22;
+        }
+
+        /* Cam */
+        .badge-phys {
+            background-color: #8e44ad;
+        }
+
+        /* Tím */
+        .badge-chem {
+            background-color: #27ae60;
+        }
+
+        /* Xanh lá */
+        .badge-bio {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        /* Vàng */
+
+        .back-btn-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #0062cc, #00c6ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 98, 204, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 98, 204, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dau-trang">
+        <h1>BẢNG PHÂN CHIA CÔNG VIỆC</h1>
+        <p>Team Khoa Học Tự Nhiên - Lớp 12</p>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Thành Viên</th>
+                    <th>Nhiệm Vụ (HTML/CSS Breakdown)</th>
+                    <th>Tỷ Trọng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TRƯƠNG VĂN HÀO -->
+                <tr class="leader-row">
+                    <td>
+                        <div class="leader-name">Trương Văn Hào</div>
+                        <div class="leader-title">★ Leader ★</div>
+                    </td>
+                    <td>
+                        <span class="task-header">CSS Master, Layout & Code Review</span>
+                        <ul class="task-list">
+                            <li>Xây dựng hệ thống <strong>CSS</strong>.</li>
+                            <li>Thiết kế giao diện (UI) và hiệu ứng (UX) cho toàn bộ web.</li>
+                            <li>Tích hợp (Merge) code của các thành viên, xử lý xung đột.</li>
+                            <li>Code bảng phân chia công việc</li>
+                            <li>Tổng hợp và fix bug</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-leader">35%</span>
+                    </td>
+                </tr>
+
+                <!-- LÊ PHÚC THU AN -->
+                <tr>
+                    <td>LÊ PHÚC THU AN</td>
+                    <td>
+                        <span class="task-header">HTML Skeleton & Navigation</span>
+                        <ul class="task-list">
+                            <li>Thiết lập cấu trúc file chuẩn.</li>
+                            <li>Code khung Header, Menu điều hướng.</li>
+                            <li>Code khung Footer và các liên kết mạng xã hội.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-struct">13%</span>
+                    </td>
+                </tr>
+
+                <!-- LÊ ĐỨC AN -->
+                <tr>
+                    <td>LÊ ĐỨC AN</td>
+                    <td>
+                        <span class="task-header">Content: Môn Toán</span>
+                        <ul class="task-list">
+                            <li>Xây dựng cấu trúc section `#mon-toan`.</li>
+                            <li>Trình bày nội dung phương pháp học Toán logic.</li>
+                            <li>Tạo bảng danh sách giáo viên Toán uy tín.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-math">13%</span>
+                    </td>
+                </tr>
+
+                <!-- BÙI HOÀNG GIA -->
+                <tr>
+                    <td>BÙI HOÀNG GIA</td>
+                    <td>
+                        <span class="task-header">Content: Môn Vật Lý</span>
+                        <ul class="task-list">
+                            <li>Xây dựng cấu trúc section `#mon-ly`.</li>
+                            <li>Trình bày nội dung phương pháp học Lý (Sơ đồ, Ví dụ).</li>
+                            <li>Tạo bảng danh sách giáo viên Lý uy tín.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-phys">13%</span>
+                    </td>
+                </tr>
+
+                <!-- TRẦN THỊ HOÀNG ANH -->
+                <tr>
+                    <td>TRẦN THỊ HOÀNG ANH</td>
+                    <td>
+                        <span class="task-header">Content: Môn Hóa Học</span>
+                        <ul class="task-list">
+                            <li>Xây dựng cấu trúc section `#mon-hoa`.</li>
+                            <li>Trình bày nội dung phương pháp học Hóa (Phản ứng, Bảng tuần hoàn).</li>
+                            <li>Tạo bảng danh sách giáo viên Hóa uy tín.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-chem">13%</span>
+                    </td>
+                </tr>
+
+                <!-- NGUYỄN TRẦN KHÁNH DUNG -->
+                <tr>
+                    <td>NGUYỄN TRẦN KHÁNH DUNG</td>
+                    <td>
+                        <span class="task-header">Content: Môn Sinh Học</span>
+                        <ul class="task-list">
+                            <li>Xây dựng cấu trúc section `#mon-sinh`.</li>
+                            <li>Trình bày nội dung phương pháp học Sinh (Di truyền, Cơ chế).</li>
+                            <li>Tạo bảng danh sách giáo viên Sinh uy tín.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <span class="badge badge-bio">13%</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back-btn-container">
+        <a href="cach_hoc_tu_nhien.html" class="back-btn"><i class="fas fa-home"></i> Về Trang Chủ Đề Tài</a>
+    </div>
+
+</body>
+
+</html>
