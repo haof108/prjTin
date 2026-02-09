@@ -1,0 +1,717 @@
+/* 
+   =====================================================================
+   FILE CSS NÀY CHỨA MÃ ĐỂ VẼ GIAO DIỆN CHO CẢ TRANG WEB 
+   =====================================================================
+   CSS (Cascading Style Sheets) là ngôn ngữ để trang trí trang web
+   Mỗi quy tắc CSS có dạng: selector { property: value; }
+*/
+
+/* ===================================================================== */
+/* 1. NHÚNG FONT CHỮ ĐẸP TỪ GOOGLE FONTS (Segoe UI) */
+/* ===================================================================== */
+/* @import: Lệnh nhập một tài nguyên bên ngoài vào file CSS */
+/* url('...'): Đường dẫn tới file font trên server của Google */
+/* family=Segoe+UI: Tên font chữ cần tải về */
+/* wght@400;600;700: Độ đậm của font (400=bình thường, 600=hơi đậm, 700=đậm) */
+/* display=swap: Hiển thị font mặc định trước, sau đó đổi sang font Google khi tải xong */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+/* ===================================================================== */
+/* 2. CẤU HÌNH CHUNG CHO TOÀN BỘ BODY (Thân trang web) */
+/* ===================================================================== */
+/* body: Selector chọn toàn bộ phần thân trang web */
+body {
+    /* font-family: Quy định font chữ sử dụng */
+    /* 'Segoe UI': Font chính, nếu không có sẽ dùng font dự phòng */
+    /* sans-serif: Font dự phòng (font không chân - dễ đọc trên màn hình) */
+    font-family: 'Segoe UI', sans-serif;
+
+    /* background-color: Màu nền của toàn trang */
+    /* #f0f2f5: Mã màu HEX (xám xanh nhạt, giống Facebook) */
+    /* Màu này dịu mắt, không gây mỏi mắt khi đọc lâu */
+    background-color: #f0f2f5;
+
+    /* margin: Khoảng cách BÊN NGOÀI phần tử */
+    /* 0: Xóa khoảng trắng thừa ở viền màn hình (trình duyệt mặc định có margin) */
+    margin: 0;
+
+    /* padding: Khoảng cách BÊN TRONG phần tử */
+    /* 0: Xóa khoảng đệm bên trong (đảm bảo nội dung sát viền) */
+    padding: 0;
+
+    /* color: Màu chữ mặc định cho toàn trang */
+    /* #333: Màu đen xám (dễ đọc hơn #000 đen tuyền) */
+    color: #333;
+}
+
+/* ===================================================================== */
+/* 3. PHẦN ĐẦU TRANG (Banner màu xanh gradient) */
+/* ===================================================================== */
+/* .dau-trang: Class selector (chọn tất cả thẻ có class="dau-trang") */
+/* Dấu chấm (.) trước tên class là bắt buộc trong CSS */
+.dau-trang {
+    /* background: Thuộc tính tổng hợp cho nền (có thể chứa màu, gradient, hình ảnh) */
+    /* linear-gradient: Tạo gradient tuyến tính (màu chuyển dần) */
+    /* 135deg: Góc nghiêng 135 độ (từ trái dưới sang phải trên) */
+    /* #0062cc: Màu xanh dương đậm (bắt đầu) */
+    /* #00c6ff: Màu xanh da trời nhạt (kết thúc) */
+    background: linear-gradient(135deg, #0062cc, #00c6ff);
+
+    /* color: Màu chữ */
+    /* white: Từ khóa màu trắng (tương đương #ffffff) */
+    color: white;
+
+    /* text-align: Căn chỉnh văn bản */
+    /* center: Căn giữa theo chiều ngang */
+    text-align: center;
+
+    /* padding: Khoảng đệm bên trong */
+    /* 40px 20px: Trên/dưới 40px, Trái/phải 20px */
+    padding: 40px 20px;
+
+    /* box-shadow: Đổ bóng cho phần tử */
+    /* 0: Không dịch bóng theo chiều ngang (X) */
+    /* 4px: Dịch bóng xuống dưới 4px (Y) */
+    /* 6px: Độ mờ của bóng (blur) */
+    /* rgba(0,0,0,0.1): Màu bóng đen trong suốt 10% */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề H1 to trong đầu trang */
+/* .dau-trang h1: Chọn thẻ h1 BÊN TRONG thẻ có class="dau-trang" */
+/* Dấu cách giữa .dau-trang và h1 có nghĩa là "con cháu" (descendant) */
+.dau-trang h1 {
+    /* margin: Khoảng cách bên ngoài */
+    /* 0: Xóa lề thừa mặc định của thẻ h1 */
+    margin: 0;
+
+    /* font-size: Kích thước chữ */
+    /* 32px: Cỡ chữ lớn 32 pixel */
+    font-size: 32px;
+
+    /* text-shadow: Đổ bóng cho chữ */
+    /* 1px: Bóng dịch sang phải 1px (X) */
+    /* 1px: Bóng dịch xuống dưới 1px (Y) */
+    /* 2px: Độ mờ 2px */
+    /* rgba(0,0,0,0.2): Màu bóng đen trong suốt 20% */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Đoạn văn nhỏ p trong đầu trang */
+.dau-trang p {
+    /* font-size: Kích thước chữ */
+    /* 18px: Cỡ chữ vừa phải, dễ đọc */
+    font-size: 18px;
+
+    /* margin-top: Khoảng cách phía trên */
+    /* 10px: Cách tiêu đề h1 bên trên 10px */
+    margin-top: 10px;
+
+    /* opacity: Độ trong suốt */
+    /* 0.9: 90% rõ, 10% trong suốt (làm mờ nhẹ) */
+    /* Giá trị từ 0 (hoàn toàn trong suốt) đến 1 (hoàn toàn đậm) */
+    opacity: 0.9;
+}
+
+/* ===================================================================== */
+/* 4. THANH MENU ĐIỀU HƯỚNG */
+/* ===================================================================== */
+.thanh-menu {
+    /* background-color: Màu nền */
+    /* #ffffff: Màu trắng */
+    background-color: #ffffff;
+
+    /* text-align: Căn giữa các nút menu */
+    text-align: center;
+
+    /* padding: Đệm trên dưới 15px, trái phải 0 */
+    padding: 15px 0;
+
+    /* box-shadow: Bóng mờ nhẹ bên dưới */
+    /* 0 2px 4px: Bóng dịch xuống 2px, độ mờ 4px */
+    /* rgba(0,0,0,0.05): Màu bóng đen trong suốt 5% (rất nhẹ) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    /* === Làm menu dính chặt lên trên cùng khi cuộn chuột === */
+    /* position: Định vị phần tử */
+    /* sticky: Dính vào vị trí khi cuộn trang (kết hợp relative và fixed) */
+    position: sticky;
+
+    /* top: Khoảng cách từ đỉnh màn hình */
+    /* 0: Dính sát đỉnh màn hình (không có khoảng cách) */
+    top: 0;
+
+    /* z-index: Thứ tự xếp chồng các lớp */
+    /* 100: Giá trị cao để menu luôn nằm đè lên trên các phần khác */
+    /* Giá trị càng cao thì lớp càng nằm trên */
+    z-index: 100;
+}
+
+/* Định dạng chung cho các nút bấm (thẻ a) trong menu */
+/* .thanh-menu a: Chọn tất cả thẻ a BÊN TRONG .thanh-menu */
+.thanh-menu a {
+    /* text-decoration: Trang trí văn bản */
+    /* none: Bỏ gạch chân mặc định của link */
+    text-decoration: none;
+
+    /* font-weight: Độ đậm của chữ */
+    /* 700: Chữ đậm (tương đương "bold") */
+    /* Giá trị từ 100 (mỏng nhất) đến 900 (đậm nhất) */
+    font-weight: 700;
+
+    /* padding: Đệm bên trong nút */
+    /* 10px 25px: Trên/dưới 10px, Trái/phải 25px */
+    padding: 10px 25px;
+
+    /* margin: Khoảng cách giữa các nút */
+    /* 0 5px: Trên/dưới 0, Trái/phải 5px */
+    margin: 0 5px;
+
+    /* border-radius: Bo tròn góc */
+    /* 25px: Bán kính góc bo 25px (tạo hình viên thuốc) */
+    border-radius: 25px;
+
+    /* transition: Hiệu ứng chuyển động */
+    /* all: Áp dụng cho TẤT CẢ thuộc tính thay đổi */
+    /* 0.3s: Thời gian chuyển động 0.3 giây */
+    /* ease: Kiểu chuyển động (chậm rồi nhanh rồi chậm lại) */
+    transition: all 0.3s ease;
+
+    /* display: Kiểu hiển thị */
+    /* inline-block: Vừa ngang hàng (inline), vừa chỉnh được kích thước (block) */
+    display: inline-block;
+
+    /* border: Viền */
+    /* 2px: Độ dày viền */
+    /* solid: Kiểu viền liền nét */
+    /* transparent: Màu trong suốt (giữ chỗ sẵn để khi hover không bị giật) */
+    border: 2px solid transparent;
+}
+
+/* ===================================================================== */
+/* 5. MÀU SẮC RIÊNG CHO TỪNG NÚT MENU */
+/* ===================================================================== */
+
+/* --- NÚT TOÁN (Màu Đỏ Cam) --- */
+/* .thanh-menu .menu-toan: Chọn phần tử có class="menu-toan" BÊN TRONG .thanh-menu */
+.thanh-menu .menu-toan {
+    /* color: Màu chữ đỏ cam */
+    /* #e74c3c: Mã màu HEX (đỏ cam nổi bật) */
+    color: #e74c3c;
+
+    /* border-color: Màu viền */
+    /* #e74c3c: Viền cùng màu với chữ */
+    border-color: #e74c3c;
+}
+
+/* Khi di chuột vào nút Toán */
+/* :hover: Pseudo-class kích hoạt khi rê chuột lên phần tử */
+.thanh-menu .menu-toan:hover {
+    /* background-color: Nền chuyển thành màu đỏ cam */
+    background-color: #e74c3c;
+
+    /* color: Chữ chuyển thành trắng để tương phản với nền đỏ */
+    color: white;
+
+    /* transform: Biến đổi hình dạng/vị trí */
+    /* translateY(-2px): Dịch chuyển lên trên 2px (tạo hiệu ứng nảy) */
+    transform: translateY(-2px);
+
+    /* box-shadow: Đổ bóng phát sáng */
+    /* 0 4px 8px: Bóng dịch xuống 4px, độ mờ 8px */
+    /* rgba(231,76,60,0.3): Màu bóng đỏ cam trong suốt 30% */
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+/* --- NÚT LÝ (Màu Tím) --- */
+.thanh-menu .menu-ly {
+    /* #8e44ad: Mã màu tím */
+    color: #8e44ad;
+    border-color: #8e44ad;
+}
+
+/* Hiệu ứng hover cho nút Lý */
+.thanh-menu .menu-ly:hover {
+    background-color: #8e44ad;
+    color: white;
+    transform: translateY(-2px);
+    /* rgba(142,68,173,0.3): Bóng tím trong suốt 30% */
+    box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
+}
+
+/* --- NÚT HÓA (Màu Xanh Lá) --- */
+.thanh-menu .menu-hoa {
+    /* #27ae60: Mã màu xanh lá */
+    color: #27ae60;
+    border-color: #27ae60;
+}
+
+/* Hiệu ứng hover cho nút Hóa */
+.thanh-menu .menu-hoa:hover {
+    background-color: #27ae60;
+    color: white;
+    transform: translateY(-2px);
+    /* rgba(39,174,96,0.3): Bóng xanh lá trong suốt 30% */
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+/* --- NÚT SINH (Màu Vàng Cam) --- */
+.thanh-menu .menu-sinh {
+    /* #f39c12: Mã màu vàng cam */
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+/* Hiệu ứng hover cho nút Sinh */
+.thanh-menu .menu-sinh:hover {
+    background-color: #f39c12;
+    color: white;
+    transform: translateY(-2px);
+    /* rgba(243,156,18,0.3): Bóng vàng cam trong suốt 30% */
+    box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
+}
+
+/* ===================================================================== */
+/* 6. KHUNG CHỨA NỘI DUNG CHÍNH */
+/* ===================================================================== */
+.khung-chinh {
+    /* max-width: Chiều rộng TỐI ĐA */
+    /* 1000px: Không cho phép rộng hơn 1000px (ngăn bè ra quá to trên màn to) */
+    max-width: 1000px;
+
+    /* margin: Khoảng cách bên ngoài */
+    /* 30px: Trên/dưới cách 30px */
+    /* auto: Trái/phải tự động (canh giữa màn hình) */
+    margin: 30px auto;
+
+    /* padding: Đệm trái phải */
+    /* 0 20px: Trên/dưới 0, Trái/phải 20px (không để nội dung sát lề điện thoại) */
+    padding: 0 20px;
+}
+
+/* Thẻ chứa từng môn học (Class chung) */
+.the-noi-dung {
+    /* background-color: Nền trắng */
+    background-color: white;
+
+    /* border-radius: Góc bo tròn */
+    /* 12px: Bán kính góc 12px (tạo góc mềm mại) */
+    border-radius: 12px;
+
+    /* box-shadow: Đổ bóng tạo độ nổi */
+    /* 0 4px 8px: Bóng dịch xuống 4px, độ mờ 8px */
+    /* rgba(0,0,0,0.08): Bóng đen trong suốt 8% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+    /* padding: Cách lề bên trong */
+    /* 30px: Khoảng đệm 30px tất cả các phía */
+    padding: 30px;
+
+    /* margin-bottom: Khoảng cách phía dưới */
+    /* 40px: Cách thẻ tiếp theo 40px */
+    margin-bottom: 40px;
+
+    /* border-top: Viền trên */
+    /* 5px: Độ dày viền */
+    /* solid: Kiểu viền liền nét */
+    /* #ddd: Màu xám nhạt (sẽ được ghi đè bởi màu riêng từng môn) */
+    border-top: 5px solid #ddd;
+}
+
+/* Tiêu đề mục lớn (A, B...) */
+.muc-lon {
+    /* font-weight: In đậm */
+    font-weight: bold;
+
+    /* font-size: Cỡ chữ */
+    /* 18px: Hơi lớn hơn chữ thường */
+    font-size: 18px;
+
+    /* display: Kiểu hiển thị */
+    /* block: Hiển thị dòng riêng (xuống dòng sau phần tử) */
+    display: block;
+
+    /* margin-top: Cách phía trên */
+    /* 20px: Khoảng cách 20px */
+    margin-top: 20px;
+
+    /* margin-bottom: Cách phía dưới */
+    /* 10px: Khoảng cách 10px */
+    margin-bottom: 10px;
+}
+
+/* Danh sách gạch đầu dòng (ul) */
+/* ul: Element selector (chọn TẤT CẢ thẻ ul trong trang) */
+ul {
+    /* list-style: Kiểu danh sách */
+    /* none: Bỏ dấu chấm tròn mặc định của HTML */
+    list-style: none;
+
+    /* padding-left: Đệm bên trái */
+    /* 0: Căn sát lề trái (bỏ thụt đầu dòng mặc định) */
+    padding-left: 0;
+}
+
+/* Từng dòng trong danh sách (li) */
+ul li {
+    /* position: Định vị */
+    /* relative: Định vị tương đối (làm mốc cho phần tử con ::before) */
+    position: relative;
+
+    /* padding-left: Đệm bên trái */
+    /* 25px: Chừa chỗ cho dấu tick ✔ */
+    padding-left: 25px;
+
+    /* margin-bottom: Cách dòng dưới */
+    /* 8px: Khoảng cách giữa các dòng */
+    margin-bottom: 8px;
+
+    /* line-height: Chiều cao dòng */
+    /* 1.6: Gấp 1.6 lần cỡ chữ (giãn dòng cho dễ đọc) */
+    line-height: 1.6;
+}
+
+/* Tạo dấu tick ✔ bằng CSS (Giả lập phần tử) */
+/* ::before: Pseudo-element tạo phần tử giả TRƯỚC nội dung */
+ul li::before {
+    /* content: Nội dung của phần tử giả */
+    /* "✔": Ký tự tick (dấu kiểm) */
+    content: "✔";
+
+    /* font-weight: In đậm */
+    font-weight: bold;
+
+    /* position: Định vị */
+    /* absolute: Định vị tuyệt đối (tách khỏi luồng bình thường) */
+    position: absolute;
+
+    /* left: Khoảng cách từ bên trái */
+    /* 0: Nằm sát mép trái của li (vì li có position: relative) */
+    left: 0;
+
+    /* Màu sắc sẽ được quy định riêng ở dưới theo từng môn */
+}
+
+/* Khung ví dụ màu xám */
+.khung-vi-du {
+    /* background-color: Nền xám nhạt */
+    /* #f8f9fa: Mã màu xám rất nhạt (tương tự background tổng) */
+    background-color: #f8f9fa;
+
+    /* border-left: Viền trái */
+    /* 4px: Độ dày viền */
+    /* solid: Kiểu viền liền nét */
+    /* #ccc: Màu xám (sẽ được ghi đè bởi màu riêng từng môn) */
+    border-left: 4px solid #ccc;
+
+    /* padding: Đệm bên trong */
+    /* 20px: Khoảng đệm 20px tất cả các phía */
+    padding: 20px;
+
+    /* margin: Khoảng cách bên ngoài */
+    /* 20px 0: Trên/dưới 20px, Trái/phải 0 */
+    margin: 20px 0;
+
+    /* border-radius: Bo tròn góc */
+    /* 0 8px 8px 0: Trên-trái 0, Trên-phải 8px, Dưới-phải 8px, Dưới-trái 0 */
+    /* Chỉ bo tròn góc bên phải (vì viền nằm bên trái) */
+    border-radius: 0 8px 8px 0;
+}
+
+/* Tiêu đề của ví dụ */
+.tieu-de-vi-du {
+    /* font-weight: In đậm */
+    font-weight: bold;
+
+    /* display: Hiển thị dòng riêng */
+    display: block;
+
+    /* margin-bottom: Cách phía dưới */
+    /* 10px: Khoảng cách 10px */
+    margin-bottom: 10px;
+}
+
+/* ===================================================================== */
+/* 7. BẢNG GIÁO VIÊN */
+/* ===================================================================== */
+/* table: Chọn tất cả thẻ table */
+table {
+    /* width: Chiều rộng */
+    /* 100%: Rộng kín khung chứa */
+    width: 100%;
+
+    /* border-collapse: Gộp viền */
+    /* collapse: Liền mạch các ô, không có khe hở giữa các ô */
+    border-collapse: collapse;
+
+    /* margin-top: Cách phía trên */
+    /* 15px: Khoảng cách 15px */
+    margin-top: 15px;
+
+    /* background-color: Nền trắng */
+    background-color: white;
+}
+
+/* Định dạng ô tiêu đề (th) và ô dữ liệu (td) */
+/* th, td: Chọn cả th VÀ td (selector nhóm, ngăn cách bởi dấu phẩy) */
+th,
+td {
+    /* text-align: Căn chỉnh văn bản */
+    /* left: Căn trái chữ */
+    text-align: left;
+
+    /* padding: Khoảng đệm cho thoáng */
+    /* 12px 15px: Trên/dưới 12px, Trái/phải 15px */
+    padding: 12px 15px;
+
+    /* border-bottom: Viền dưới */
+    /* 1px: Độ dày viền */
+    /* solid: Kiểu viền liền nét */
+    /* #eee: Màu xám rất nhạt (đường gạch mờ phân cách các hàng) */
+    border-bottom: 1px solid #eee;
+}
+
+/* Ô tiêu đề bảng */
+th {
+    /* color: Chữ trắng */
+    color: white;
+
+    /* font-weight: In đậm */
+    font-weight: bold;
+
+    /* text-transform: Chuyển đổi chữ */
+    /* uppercase: VIẾT HOA TẤT CẢ chữ cái */
+    text-transform: uppercase;
+
+    /* font-size: Cỡ chữ */
+    /* 14px: Cỡ chữ vừa phải */
+    font-size: 14px;
+
+    /* Màu nền sẽ được quy định riêng ở dưới theo từng môn */
+}
+
+/* Hiệu ứng khi lướt chuột qua hàng trong bảng */
+/* tr:hover: Chọn thẻ tr khi rê chuột lên */
+tr:hover {
+    /* background-color: Hàng đó sáng lên màu xám nhạt */
+    /* #f1f1f1: Mã màu xám rất nhạt */
+    background-color: #f1f1f1;
+}
+
+/* Link tên giáo viên */
+.link-giao-vien {
+    /* text-decoration: Bỏ gạch chân */
+    text-decoration: none;
+
+    /* font-weight: In đậm */
+    font-weight: bold;
+
+    /* transition: Hiệu ứng chuyển động mượt */
+    /* all 0.3s ease: Tất cả thuộc tính thay đổi trong 0.3 giây, kiểu ease */
+    transition: all 0.3s ease;
+
+    /* display: Để transform hoạt động */
+    /* inline-block: Vừa ngang hàng, vừa chỉnh được kích thước */
+    display: inline-block;
+}
+
+/* Khi di chuột vào tên giáo viên */
+.link-giao-vien:hover {
+    /* text-decoration: Gạch chân */
+    /* underline: Gạch chân chữ */
+    text-decoration: underline;
+
+    /* opacity: Độ trong suốt */
+    /* 0.8: 80% rõ (mờ đi chút) */
+    opacity: 0.8;
+
+    /* transform: Biến đổi */
+    /* translateY(-1px): Bay lên nhẹ 1px */
+    transform: translateY(-1px);
+}
+
+/* ===================================================================== */
+/* 8. PHỐI MÀU RIÊNG BIỆT CHO CÁC MÔN HỌC */
+/* ===================================================================== */
+/* Phần này ghi đè các màu chung ở trên bằng màu riêng của từng môn */
+/* Sử dụng ID selector (dấu #) để chọn phần tử có id cụ thể */
+
+/* ========== MÔN TOÁN (#e74c3c - Đỏ Cam) ========== */
+/* #mon-toan: Chọn phần tử có id="mon-toan" */
+#mon-toan {
+    /* border-top-color: Màu viền trên */
+    /* #e74c3c: Màu đỏ cam đặc trưng cho môn Toán */
+    border-top-color: #e74c3c;
+}
+
+/* Tiêu đề môn Toán */
+#mon-toan .tieu-de-mon {
+    color: #e74c3c;
+}
+
+/* Mục A, B trong môn Toán */
+#mon-toan .muc-lon {
+    color: #e74c3c;
+}
+
+/* Dấu tick ✔ trong môn Toán */
+#mon-toan ul li::before {
+    color: #e74c3c;
+}
+
+/* Viền khung ví dụ môn Toán */
+#mon-toan .khung-vi-du {
+    border-left-color: #e74c3c;
+}
+
+/* Tiêu đề ví dụ môn Toán */
+#mon-toan .tieu-de-vi-du {
+    color: #e74c3c;
+}
+
+/* Nền tiêu đề bảng môn Toán */
+#mon-toan th {
+    background-color: #e74c3c;
+}
+
+/* Màu link giáo viên môn Toán */
+#mon-toan .link-giao-vien {
+    color: #e74c3c;
+}
+
+/* ========== MÔN LÝ (#8e44ad - Tím) ========== */
+#mon-ly {
+    border-top-color: #8e44ad;
+}
+
+#mon-ly .tieu-de-mon {
+    color: #8e44ad;
+}
+
+#mon-ly .muc-lon {
+    color: #8e44ad;
+}
+
+#mon-ly ul li::before {
+    color: #8e44ad;
+}
+
+#mon-ly .khung-vi-du {
+    border-left-color: #8e44ad;
+}
+
+#mon-ly .tieu-de-vi-du {
+    color: #8e44ad;
+}
+
+#mon-ly th {
+    background-color: #8e44ad;
+}
+
+#mon-ly .link-giao-vien {
+    color: #8e44ad;
+}
+
+/* ========== MÔN HÓA (#27ae60 - Xanh Lá) ========== */
+#mon-hoa {
+    border-top-color: #27ae60;
+}
+
+#mon-hoa .tieu-de-mon {
+    color: #27ae60;
+}
+
+#mon-hoa .muc-lon {
+    color: #27ae60;
+}
+
+#mon-hoa ul li::before {
+    color: #27ae60;
+}
+
+#mon-hoa .khung-vi-du {
+    border-left-color: #27ae60;
+}
+
+#mon-hoa .tieu-de-vi-du {
+    color: #27ae60;
+}
+
+#mon-hoa th {
+    background-color: #27ae60;
+}
+
+#mon-hoa .link-giao-vien {
+    color: #27ae60;
+}
+
+/* ========== MÔN SINH (#f39c12 - Vàng Cam) ========== */
+#mon-sinh {
+    border-top-color: #f39c12;
+}
+
+#mon-sinh .tieu-de-mon {
+    color: #f39c12;
+}
+
+#mon-sinh .muc-lon {
+    color: #f39c12;
+}
+
+#mon-sinh ul li::before {
+    color: #f39c12;
+}
+
+#mon-sinh .khung-vi-du {
+    border-left-color: #f39c12;
+}
+
+#mon-sinh .tieu-de-vi-du {
+    color: #f39c12;
+}
+
+#mon-sinh th {
+    background-color: #f39c12;
+}
+
+#mon-sinh .link-giao-vien {
+    color: #f39c12;
+}
+
+/* ===================================================================== */
+/* 9. CHÂN TRANG (FOOTER) */
+/* ===================================================================== */
+.chan-trang {
+    /* text-align: Căn giữa */
+    text-align: center;
+
+    /* padding: Đệm */
+    /* 30px: Khoảng đệm 30px tất cả các phía */
+    padding: 30px;
+
+    /* color: Màu chữ xám nhạt */
+    /* #777: Mã màu xám vừa phải */
+    color: #777;
+
+    /* font-size: Cỡ chữ */
+    /* 14px: Chữ nhỏ hơn bình thường */
+    font-size: 14px;
+
+    /* border-top: Viền trên */
+    /* 1px solid #ddd: Đường kẻ xám nhạt ngăn cách */
+    border-top: 1px solid #ddd;
+
+    /* margin-top: Cách phía trên */
+    /* 40px: Khoảng cách 40px */
+    margin-top: 40px;
+}
+
+/* =====================================================================
+   KẾT THÚC FILE CSS
+   =====================================================================
+   Tổng kết:
+   - File này định nghĩa TOÀN BỘ giao diện của trang web
+   - Mỗi môn học có bộ màu riêng (Toán: đỏ, Lý: tím, Hóa: xanh lá, Sinh: vàng)
+   - Sử dụng hiệu ứng hover, gradient, box-shadow để tạo cảm giác hiện đại
+   - Thiết kế responsive (tương thích với nhiều kích thước màn hình)
+   ===================================================================== */
